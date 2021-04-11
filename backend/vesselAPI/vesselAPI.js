@@ -31,7 +31,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     try {
-        console.log("Got req.body.vesselName: ",req.body.vesselName)
         const ret = vesselProvider.create(req.body.vesselName);
         res.statusCode=201;
         res.send(ret);

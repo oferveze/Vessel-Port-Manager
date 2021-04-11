@@ -7,7 +7,7 @@ function Header() {
                 <h1>Tortuga Port Manager!</h1>
                 
             </div>
-            <div style={{marginLeft: "120px", marginTop:"10px"}}>
+            <div className="pirateFlag">
                 <img src="https://static.wixstatic.com/media/9ef124_9b8a0cad8615499f841694ec2542230f~mv2.gif" alt=""/>  
             </div>
         </div>

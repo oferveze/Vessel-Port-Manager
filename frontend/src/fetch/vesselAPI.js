@@ -37,5 +37,12 @@ const doRequest = (path, method, body) => {
         body,
     }
 
-    return fetch(`/vessels${path}`, options);
+    return fetch(`/vessels${path}`, options)
+    .then(resp => {
+        if (resp.status >= 400 &&  resp.status < 600) {
+            throw new Error(resp.text);
+        }
+
+        return resp;
+    });
 }

@@ -1,3 +1,16 @@
+body {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url("https://www.wnwd.com/wp-content/uploads/2021/02/Homepage-1.jpg");
+}
+
+table {
+  border-spacing: 25px;
+}
+
 td {
   text-align: center;
   font-family: "Courier New";
@@ -15,28 +28,6 @@ th {
   color:#99cc00
 }
 
-table {
-  border-spacing: 25px;
-}
-
-body {
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-image: url("https://www.wnwd.com/wp-content/uploads/2021/02/Homepage-1.jpg");
-}
-
-img {
-  opacity: 0.4;
-  border-radius: 30%;
-}
-
-.container {
-  display: flex;
-}
-
 h1 {
   height: 90%; 
     width:100%;
@@ -44,6 +35,24 @@ h1 {
     align-items: center;
     justify-content: center;
     color: #E1A10C
+}
+
+img {
+  opacity: 0.4;
+  border-radius: 30%;
+}
+
+.errorMsg {
+  color: red;
+}
+
+.container {
+  display: flex;
+}
+
+.pirateFlag {
+  margin-left: 120px;
+  margin-top: 10px;
 }
 
 .frame {

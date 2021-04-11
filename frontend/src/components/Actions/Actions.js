@@ -6,10 +6,7 @@ function Actions({ id, isMoored }) {
 
     return (
         <>
-           {isMoored ? 
-                <button onClick={() => toggleIsMoored(id)}>Leave Port</button> :
-                <button onClick={() => toggleIsMoored(id)}>Enter Port</button>
-           }
+            <button onClick={() => toggleIsMoored(id)}>{isMoored ? "Leave Port": "Enter Port"} </button>
             <button onClick={() => removeVessel(id)}>Delete</button>
         </>
     )

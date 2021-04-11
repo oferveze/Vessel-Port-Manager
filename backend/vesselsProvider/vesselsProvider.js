@@ -80,9 +80,7 @@ module.exports = class vesselProvider {
     }
 
     validateUniqueName(vesselName) {
-        console.log("validating: " + vesselName);
         vesselName.trim();
-        console.log("validating: " + vesselName);
         const isFound = _.findWhere(this.vessels, {name: vesselName});
     
         return isFound === undefined;

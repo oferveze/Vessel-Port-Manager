@@ -3,7 +3,7 @@ import { VesselContext } from '../../contexts/VesselContext';
 
 function AddVessel() {
     const [newVesselName, setNewVesselName] = useState("")
-    const { addVessel } = useContext(VesselContext)
+    const { addVessel, cannotAddVesselError } = useContext(VesselContext)
 
     const onChange = (event) => {
         event.preventDefault();
@@ -15,15 +15,17 @@ function AddVessel() {
         addVessel(newVesselName);
         setNewVesselName("");
     }
-
+    
     return (
-        <form onSubmit={onSubmit}>
-            <label>
-                  
-                <input type="text" value={newVesselName} onChange={onChange} required placeholder="Vessel Name"/>
-            </label>
-            <input type="submit" value="Add Vessel" />
-        </form>
+        <>
+            <form onSubmit={onSubmit}>
+                <label>
+                    <input type="text" value={newVesselName} onChange={onChange} required placeholder="Vessel Name"/>
+                </label>
+                <input type="submit" value="Add Vessel" />
+            </form>
+            {cannotAddVesselError ? <span className="errorMsg">{cannotAddVesselError}</span> : null}
+        </>
     )
 }
 

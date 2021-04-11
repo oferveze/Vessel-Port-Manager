@@ -6,6 +6,7 @@ export const VesselContext = createContext();
 
 const VesselContextProvider = (props) => {
     const [vessels, setVessels] = useState([]);
+    const [cannotAddVesselError, setCannotAddVesselError] = useState(null);
 
     useEffect(() => {
         getAndSetAllVessels();
@@ -17,11 +18,14 @@ const VesselContextProvider = (props) => {
     }
 
     const addVessel = async (name) => {
+        setCannotAddVesselError(null);
         try {
-            await postVessel(name);
+            const resp = await postVessel(name);
+            console.log(resp);
             await getAndSetAllVessels();
         } catch (e) {
             console.log("Adding vessel went wrong: ", e);
+            setCannotAddVesselError("Name should be unique");
         }
     }
 
@@ -30,13 +34,11 @@ const VesselContextProvider = (props) => {
             await deleteVessel(id);
             await getAndSetAllVessels();
         } catch (e) {
-            console.log("Deleting vessel went wrong: ", e);
+            console.log("Deleting vessel went wrong: ", e);  
         }
     }
 
-    const toggleIsMoored = async (id) => {
-        const vessel = _.findWhere(vessels, { id });
-        
+    const handleMooredIntervalPairForVessel = (vessel) => {
         if (vessel.isMoored) {
             vessel.timeIntervalsInTorruga[vessel.timeIntervalsInTorruga.length - 1].end = Date.now();    
         } else {
@@ -46,7 +48,11 @@ const VesselContextProvider = (props) => {
             }
             vessel.timeIntervalsInTorruga.push(intervalPair)    
         }
+    }
 
+    const toggleIsMoored = async (id) => {
+        const vessel = _.findWhere(vessels, { id });
+        handleMooredIntervalPairForVessel(vessel);
         vessel.isMoored = !vessel.isMoored;
 
         try {
@@ -58,7 +64,7 @@ const VesselContextProvider = (props) => {
     }
 
     return (
-        <VesselContext.Provider value={{vessels, setVessels, addVessel, removeVessel, toggleIsMoored }}>
+        <VesselContext.Provider value={{vessels, setVessels, addVessel, removeVessel, toggleIsMoored, cannotAddVesselError}}>
             { props.children }
         </VesselContext.Provider>
     );
