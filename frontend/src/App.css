@@ -1,0 +1,55 @@
+td {
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: bold;
+  font-size: 30px;
+  color:#F8B418
+
+}
+
+th {
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: bold;
+  font-size: 30px;
+  color:#99cc00
+}
+
+table {
+  border-spacing: 25px;
+}
+
+body {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url("https://www.wnwd.com/wp-content/uploads/2021/02/Homepage-1.jpg");
+}
+
+img {
+  opacity: 0.4;
+  border-radius: 30%;
+}
+
+.container {
+  display: flex;
+}
+
+h1 {
+  height: 90%; 
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: #E1A10C
+}
+
+.frame {
+  padding-left: 25px;
+}
+
+.Input-text::placeholder {
+  color: #B0BEC5;
+}
